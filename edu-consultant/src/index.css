@@ -1,0 +1,363 @@
+/* =========================================
+   1. GOOGLE FONTS & THEME VARIABLES
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --primary: #1a1a1a;
+  --primary-hover: #333333;
+  --accent: #8b5a2b;          /* Brown/Golden Theme */
+  --accent-light: #f5f0e6;    /* Soft Cream Background */
+  --bg-main: #ffffff;
+  --bg-secondary: #f9f9f9;
+  --text-main: #333333;
+  --text-muted: #777777;
+  --border: #e5e5e5;
+  
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* =========================================
+   2. GLOBAL RESET
+   ========================================= */
+html { 
+  scroll-behavior: smooth; 
+  scroll-padding-top: 80px; 
+}
+
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+body { 
+  font-family: var(--font-body); 
+  color: var(--text-main); 
+  background-color: var(--bg-main); 
+  line-height: 1.5; 
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { 
+  font-family: var(--font-heading); 
+  color: var(--primary); 
+  font-weight: 600; 
+}
+
+a { 
+  text-decoration: none; 
+  color: inherit; 
+  transition: color 0.2s ease; 
+}
+
+/* =========================================
+   3. BUTTONS
+   ========================================= */
+.btn-primary, .btn-secondary {
+  padding: 0.75rem 1.5rem; 
+  border-radius: 6px; 
+  font-family: var(--font-body); 
+  font-weight: 500; 
+  font-size: 0.95rem; 
+  cursor: pointer; 
+  border: none; 
+  transition: all 0.2s ease; 
+  display: inline-block; 
+  text-align: center;
+}
+
+.btn-primary { 
+  background-color: var(--primary); 
+  color: white; 
+}
+.btn-primary:hover { 
+  background-color: var(--primary-hover); 
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+}
+
+.btn-secondary { 
+  background-color: var(--accent-light); 
+  color: var(--accent); 
+}
+.btn-secondary:hover { 
+  background-color: #e8dfd0; 
+  transform: translateY(-2px); 
+}
+
+/* =========================================
+   4. NAVBAR
+   ========================================= */
+.navbar { 
+  border-bottom: 1px solid var(--border); 
+  background: rgba(255, 255, 255, 0.95); 
+  backdrop-filter: blur(10px); 
+  position: sticky; 
+  top: 0; 
+  z-index: 100; 
+}
+
+.nav-container { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 1rem 2rem; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%;
+}
+
+.nav-logo { 
+  font-family: var(--font-heading); 
+  font-size: 1.4rem; 
+  font-weight: 600; 
+  display: flex; 
+  align-items: center; 
+  gap: 0.5rem; 
+  color: var(--primary); 
+}
+
+.nav-links { 
+  display: flex; 
+  gap: 2rem; 
+  font-size: 0.9rem; 
+  font-weight: 500; 
+}
+
+.nav-links a { position: relative; }
+.nav-links a::after { 
+  content: ''; 
+  position: absolute; 
+  width: 0%; 
+  height: 2px; 
+  bottom: -4px; 
+  left: 0; 
+  background-color: var(--accent); 
+  transition: width 0.3s ease; 
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-actions { 
+  display: flex; 
+  align-items: center; 
+  gap: 1rem; 
+}
+
+.nav-btn-wrapper { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.mobile-menu-btn { 
+  display: none; 
+  background: none; 
+  border: none; 
+  font-size: 1.5rem; 
+  cursor: pointer; 
+  color: var(--primary); 
+}
+
+.mobile-menu { display: none; }
+
+/* =========================================
+   5. COMMON STYLES
+   ========================================= */
+.section-header { text-align: center; margin-bottom: 2.5rem; }
+.section-badge { color: var(--accent); font-weight: 600; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; }
+.section-title { font-size: 2.2rem; margin: 0.5rem 0; }
+.section-subtitle { color: var(--text-muted); font-size: 0.95rem; }
+
+/* =========================================
+   6. HERO
+   ========================================= */
+.hero-section { background-color: var(--bg-secondary); padding: 5rem 2rem; }
+.hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.hero-badge { display: inline-block; background: var(--accent-light); color: var(--accent); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 1.5rem; }
+.hero-heading { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; }
+.hero-subtitle { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 3rem; max-width: 90%; }
+.hero-stats { display: flex; gap: 3rem; }
+.stat-item h3 { font-size: 2rem; margin-bottom: 0.2rem; }
+.stat-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+.hero-form-card { background: var(--bg-main); padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--border); transition: transform 0.3s ease; }
+.hero-form-card:hover { transform: translateY(-5px); }
+.form-title { font-size: 1.5rem; margin-bottom: 0.2rem; }
+.form-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+.input-group { margin-bottom: 1rem; }
+.input-group label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.4rem; }
+.input-group select, .input-group input { width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-main); font-family: var(--font-body); outline: none; transition: border-color 0.2s; }
+.input-group select:focus, .input-group input:focus { border-color: var(--accent); }
+
+/* =========================================
+   7. DEADLINES
+   ========================================= */
+.deadlines-section { padding: 4rem 2rem; background: var(--bg-main); }
+.deadlines-container { max-width: 1200px; margin: 0 auto; }
+.deadlines-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+.deadlines-subtitle { color: var(--text-muted); font-size: 0.9rem; max-width: 350px; text-align: right; }
+.deadlines-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+.deadline-card { background: var(--bg-main); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; transition: all 0.3s; display: flex; flex-direction: column; }
+.deadline-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--accent); }
+.deadline-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; }
+.deadline-badge { background: var(--accent-light); color: var(--accent); padding: 0.25rem 0.6rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600; }
+.deadline-date { font-size: 0.75rem; color: var(--text-muted); }
+.deadline-country { font-size: 1.1rem; margin-bottom: 0.3rem; }
+.deadline-desc { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; flex-grow: 1; }
+.deadline-link { font-size: 0.8rem; font-weight: 600; color: var(--accent); }
+
+/* =========================================
+   8. ADVISORY
+   ========================================= */
+.advisory-section { padding: 4rem 2rem; background: var(--bg-secondary); }
+.advisory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; max-width: 1200px; margin: 0 auto; }
+.consultant-card { background: var(--bg-main); border-radius: 10px; padding: 1rem; border: 1px solid var(--border); transition: all 0.3s; display: flex; flex-direction: column; }
+.consultant-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: var(--accent); }
+.consultant-img-wrap { position: relative; margin-bottom: 1rem; border-radius: 6px; overflow: hidden; }
+.consultant-img-wrap img { width: 100%; height: 180px; object-fit: cover; display: block; }
+.availability-badge { position: absolute; top: 8px; right: 8px; background: rgba(255, 255, 255, 0.95); padding: 3px 8px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; }
+.consultant-content { flex-grow: 1; margin-bottom: 1rem; }
+.consultant-name { font-size: 1rem; margin-bottom: 0.2rem; }
+.consultant-title { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+.consultant-tags { font-size: 0.75rem; color: var(--accent); font-weight: 500; }
+.consultant-card .btn-secondary { width: 100%; font-size: 0.8rem; padding: 0.5rem; }
+
+/* =========================================
+   9. METHODOLOGY
+   ========================================= */
+.methodology-section { padding: 4rem 2rem; background: var(--bg-main); }
+.methodology-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+.methodology-card { padding: 1.5rem 0; border-top: 1px solid var(--border); }
+.step-num { font-family: var(--font-heading); font-size: 2.2rem; color: var(--accent); margin-bottom: 0.8rem; display: block; }
+.methodology-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.methodology-card p { font-size: 0.85rem; color: var(--text-muted); }
+
+/* =========================================
+   10. AID ESTIMATOR
+   ========================================= */
+.aid-section { padding: 4rem 2rem; background: var(--bg-secondary); }
+.aid-container { max-width: 1100px; margin: 0 auto; background: var(--bg-main); border-radius: 12px; padding: 2.5rem; display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid var(--border); }
+.slider-group { margin: 1.5rem 0; }
+.slider-group label { font-weight: 600; font-size: 0.9rem; }
+.slider-value { float: right; font-weight: 600; color: var(--accent); }
+.slider-group input { width: 100%; margin: 1rem 0 0.5rem 0; accent-color: var(--accent); }
+.slider-labels { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); }
+.aid-inputs { display: flex; gap: 1rem; margin-top: 1.5rem; }
+.aid-inputs .input-group { flex: 1; }
+.aid-right-card { background: var(--bg-secondary); padding: 1.8rem; border-radius: 8px; display: flex; flex-direction: column; border: 1px solid var(--border); }
+.card-badge { font-size: 0.7rem; font-weight: 600; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 0.5rem; }
+.estimate-amount { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.2rem; }
+.aid-right-card p { font-size: 0.85rem; color: var(--text-muted); }
+.aid-right-card hr { border: none; border-top: 1px dashed var(--border); margin: 1.2rem 0; }
+.breakdown { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.6rem; }
+.aid-right-card .btn-primary { margin-top: auto; }
+
+/* =========================================
+   11. TESTIMONIALS
+   ========================================= */
+.testimonials-section { padding: 4rem 2rem; background: var(--bg-secondary); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; max-width: 1200px; margin: 0 auto; }
+.review-card { background: var(--bg-main); padding: 1.5rem; border: 1px solid var(--border); border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
+.review-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--accent); }
+.review-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+.review-avatar { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+.review-header h4 { font-family: var(--font-body); font-size: 0.9rem; margin-bottom: 0; color: var(--primary); font-weight: 600; }
+.review-uni { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+.review-text { font-size: 0.8rem; color: var(--text-main); font-style: normal; margin-bottom: 1.5rem; line-height: 1.6; flex-grow: 1; }
+.review-footer { display: flex; justify-content: space-between; font-size: 0.75rem; border-top: 1px solid var(--border); padding-top: 0.8rem; color: var(--text-muted); }
+.review-footer strong { color: var(--primary); font-weight: 600; }
+
+/* =========================================
+   12. CONTACT
+   ========================================= */
+.contact-section { padding: 4rem 2rem; background: var(--bg-secondary); }
+.contact-container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.contact-form-card { background: var(--bg-main); padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+.contact-faq .section-title { margin-bottom: 1.5rem; font-size: 2rem; }
+.faq-item { margin-bottom: 1.5rem; border-bottom: 1px dashed var(--border); padding-bottom: 1rem; }
+.faq-item h4 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--primary); }
+.faq-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+/* =========================================
+   13. FOOTER
+   ========================================= */
+.footer { border-top: 1px solid var(--border); padding: 2rem; background: var(--bg-main); }
+.footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: var(--text-muted); }
+.footer-logo { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; color: var(--primary); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a:hover { color: var(--accent); }
+
+/* =========================================
+   14. FULLY RESPONSIVE DESIGN
+   ========================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero-container { gap: 2rem; }
+  .hero-heading { font-size: 2.8rem; }
+  .deadlines-grid, .advisory-grid, .methodology-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+  .aid-container { grid-template-columns: 1fr; }
+  .contact-container { grid-template-columns: 1fr; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-container { padding: 0.8rem 1.2rem; }
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: block; margin-left: 0.5rem; }
+  
+  /* Mobile Navbar Button Fix */
+  .nav-btn-wrapper { display: flex; }
+  .nav-btn-wrapper .btn-primary {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .mobile-menu {
+    display: flex; flex-direction: column; background: var(--bg-main); position: absolute; top: 100%; left: 0; width: 100%; padding: 1rem 2rem; border-bottom: 1px solid var(--border); box-shadow: 0 10px 15px rgba(0,0,0,0.05); gap: 1rem;
+  }
+  .mobile-menu a { font-weight: 500; font-size: 1rem; color: var(--primary); }
+
+  .hero-section, .deadlines-section, .advisory-section, .methodology-section, .aid-section, .testimonials-section, .contact-section {
+    padding: 3rem 1.2rem;
+  }
+
+  .hero-container { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-heading { font-size: 2.2rem; }
+  
+  .hero-stats { 
+    display: flex; 
+    flex-direction: row; 
+    gap: 1rem; 
+    justify-content: space-between;
+    width: 100%;
+  }
+  .stat-item h3 { font-size: 1.5rem; }
+  .stat-item p { font-size: 0.75rem; }
+
+  .hero-form-card { padding: 1.5rem; }
+  
+  .deadlines-grid, .advisory-grid, .methodology-grid, .testimonials-grid { grid-template-columns: 1fr; }
+  .deadlines-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .deadlines-subtitle { text-align: left; }
+  
+  .footer-container { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .hero-heading { font-size: 1.9rem; }
+  .section-title { font-size: 1.8rem; }
+  .hero-stats { gap: 0.5rem; }
+  .stat-item h3 { font-size: 1.3rem; }
+  .nav-logo { font-size: 1.2rem; }
+  
+  .nav-btn-wrapper .btn-primary {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+}
